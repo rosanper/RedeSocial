@@ -31,7 +31,7 @@ public class Main {
                     Menu menu = new Menu();
 
                     Usuario usuario = logar.fazerLogin(scanner);
-                    opcaoEscolhida = menu.exibirMenu(scanner,usuario);
+                    if (usuario != null) opcaoEscolhida = menu.exibirMenu(scanner,usuario);
                     break;
                 case "F":
                     System.out.println("Tchau, espero que você volte logo");

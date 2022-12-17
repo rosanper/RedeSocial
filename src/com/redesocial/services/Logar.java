@@ -27,14 +27,22 @@ public class Logar {
 
         } catch (UsuarioNaoEncontradoException e){
             System.out.println(e.getMessage());
+            if(!continuarNoLogin(scanner)) return null;
             System.out.println("Faça seu Login novamente!");
             return fazerLogin(scanner);
 
         } catch (SenhaException e){
             System.out.println(e.getMessage());
+            if(!continuarNoLogin(scanner)) return null;
             System.out.println("Faça seu Login novamente!");
             return fazerLogin(scanner);
         }
         return null;
+    }
+
+    private boolean continuarNoLogin(Scanner scanner){
+        System.out.println("Desejá tentar logar novamente? (s/n)");
+        String escolha = scanner.nextLine();
+        return escolha.equalsIgnoreCase("s");
     }
 }
