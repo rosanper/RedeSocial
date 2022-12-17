@@ -2,6 +2,7 @@ package com.redesocial.services;
 
 import com.redesocial.models.Usuario;
 import com.redesocial.repositories.PostRepository;
+import com.redesocial.repositories.UsuarioRepository;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ public class Menu {
 
     public String exibirMenu(Scanner scanner, Usuario usuario){
         PostRepository postRepository = new PostRepository();
+        UsuarioRepository usuarioRepository = new UsuarioRepository();
         TimeLine timeLine = new TimeLine();
         Postar postar = new Postar();
 
@@ -44,7 +46,7 @@ public class Menu {
                         break;
                     case 3:
                         System.out.println("Você escolheu ver a Timeline de todos os usuarios da Rede Social");
-                        timeLine.visualizarTimeLineRedeSocial(postRepository);
+                        timeLine.visualizarTimeLineRedeSocial(postRepository, usuarioRepository);
                         System.out.println();
                         System.out.println();
                         break;

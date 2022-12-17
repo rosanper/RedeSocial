@@ -3,17 +3,16 @@ package com.redesocial.repositories;
 import com.redesocial.Main;
 import com.redesocial.models.Usuario;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class UsuarioRepository {
 
-    public Usuario[] pegarUsuarios(){
-        Usuario[] usuarios = Main.usuarios;
-        return Arrays.copyOf(usuarios,Main.qntUsuarios);
+    public List<Usuario> pegarUsuarios(){
+        return Main.usuarios;
     }
 
     public Usuario acharUsuarioPorLogin(String login){
-        Usuario[] usuarios = pegarUsuarios();
+        List<Usuario> usuarios = pegarUsuarios();
         for (Usuario usuario : usuarios) {
             if(usuario.getLogin().equals(login)) return usuario;
         }
@@ -21,7 +20,7 @@ public class UsuarioRepository {
     }
 
     public Usuario acharUsuarioPorSenha(String senha){
-        Usuario[] usuarios = pegarUsuarios();
+        List<Usuario> usuarios = pegarUsuarios();
         for (Usuario usuario : usuarios) {
             if(usuario.getSenha().equals(senha)) return usuario;
         }
@@ -29,8 +28,8 @@ public class UsuarioRepository {
     }
 
     public void adicionarUsuario(String nome, String login, String senha){
-        Main.usuarios[Main.qntUsuarios] = new Usuario(nome,login,senha);
-        Main.qntUsuarios++;
+        Usuario usuario = new Usuario(nome, login, senha);
+        Main.usuarios.add(usuario);
     }
 
 }

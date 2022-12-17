@@ -4,6 +4,9 @@ import com.redesocial.Main;
 import com.redesocial.models.Post;
 import com.redesocial.models.Usuario;
 import com.redesocial.repositories.PostRepository;
+import com.redesocial.repositories.UsuarioRepository;
+
+import java.util.List;
 
 public class TimeLine {
     public void visualizarTimeLineUsuário(PostRepository postRepository, Usuario usuario){
@@ -18,11 +21,11 @@ public class TimeLine {
         }
     }
 
-    public void visualizarTimeLineRedeSocial(PostRepository postRepository){
-        Usuario[] usuarios = Main.usuarios;
-        for (int i = 0; i < Main.qntUsuarios; i++) {
-            Post[] posts = postRepository.pegarPosts(usuarios[i]);
-            System.out.println("- " + usuarios[i].getNome() + " (" + usuarios[i].getLogin() + "):" );
+    public void visualizarTimeLineRedeSocial(PostRepository postRepository, UsuarioRepository usuarioRepository){
+        List<Usuario> usuarios = usuarioRepository.pegarUsuarios();
+        for (Usuario usuario : usuarios) {
+            Post[] posts = postRepository.pegarPosts(usuario);
+            System.out.println("- " + usuario.getNome() + " (" + usuario.getLogin() + "):" );
             System.out.println();
             for (Post post : posts) {
                 System.out.println(post);
