@@ -1,19 +1,29 @@
 package com.redesocial.models;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario {
     private String nome;
     private String login;
     private String senha;
 
-    private Post[] posts = new Post[100];
+    private List<Post> posts = new ArrayList<>();
 
-    private int qntPost = 0;
 
     public Usuario(String nome, String login, String senha) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     public String getNome() {
@@ -38,22 +48,6 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public Post[] getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Post[] posts) {
-        this.posts = posts;
-    }
-
-    public int getQntPost() {
-        return qntPost;
-    }
-
-    public void setQntPost(int qntPost) {
-        this.qntPost = qntPost;
     }
 
     @Override
