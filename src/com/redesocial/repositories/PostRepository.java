@@ -12,8 +12,8 @@ public class PostRepository {
         return Arrays.copyOf(posts,usuario.getQntPost());
     }
 
-    public void adicionarPost(Usuario usuario, String data, String hora, String conteudo){
-        Post post = new Post(data, hora, conteudo);
+    public void adicionarPost(Usuario usuario, String conteudo){
+        Post post = new Post(conteudo);
         Post[] posts = usuario.getPosts();
         posts[usuario.getQntPost()] = post;
         usuario.setPosts(posts);
