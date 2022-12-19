@@ -28,11 +28,15 @@ public class Main {
                     cadastrar.executar(scanner);
                     break;
                 case "E":
-                    Logar logar = new Logar();
-                    Menu menu = new Menu();
+                    if(!usuarios.isEmpty()){
+                        Logar logar = new Logar();
+                        Menu menu = new Menu();
 
-                    Usuario usuario = logar.fazerLogin(scanner);
-                    if (usuario != null) opcaoEscolhida = menu.exibirMenu(scanner,usuario);
+                        Usuario usuario = logar.fazerLogin(scanner);
+                        if (usuario != null) opcaoEscolhida = menu.exibirMenu(scanner,usuario);
+                    }else {
+                        System.out.println("Não existe usuário cadastrado. Cadastre um antes de tentar entrar!");
+                    }
                     break;
                 case "F":
                     System.out.println("Tchau, espero que você volte logo");
