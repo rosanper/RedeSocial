@@ -7,7 +7,7 @@ import com.redesocial.repositories.UsuarioRepository;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Menu {
+public class MenuUsuario {
 
     public String exibirMenu(Scanner scanner, Usuario usuario){
         PostRepository postRepository = new PostRepository();
