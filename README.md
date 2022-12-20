@@ -49,7 +49,6 @@ Desenvolver um programa simulando uma rede social onde o usuário vai fazer um c
 
 ### Melhorias futuras
 
-- Impedir que o usuário acesse a tela de entrar sem que exista usuário cadastrado;
 - Adicionar a opção de visualizar a timeline de um usuário específico;
 - Adiconar a opção de seguir outros usuarios;
 
