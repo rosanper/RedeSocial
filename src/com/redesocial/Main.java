@@ -16,16 +16,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Iniciar iniciar = new Iniciar();
-        MenuInicial menuInicial = new MenuInicial();
 
         UsuarioRepository usuarioRepository = new UsuarioRepository();
 
         String opcaoEscolhida;
 
         do {
-            opcaoEscolhida = iniciar.executar(scanner);
-            menuInicial.executarMenuInicial(scanner,usuarioRepository,opcaoEscolhida);
-        }while (!opcaoEscolhida.equalsIgnoreCase(MenuInicial.OPCAO_FINALIZAR_MENU_INICIAL));
+            opcaoEscolhida = iniciar.iniciarPrograma(scanner);
+            iniciar.executarMenuInicial(scanner,usuarioRepository,opcaoEscolhida);
+        }while (!opcaoEscolhida.equalsIgnoreCase(Iniciar.OPCAO_FINALIZAR_MENU_INICIAL));
     }
 
 
